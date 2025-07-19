@@ -1,0 +1,68 @@
+@font-face {
+    font-family: "circular";
+    src: url('./assets/fonts/circular-std-medium-500.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+    color: white;
+    font-family: "Circular", sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Intro container */
+.intro {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Line styles */
+.line {
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 1s ease-out;
+}
+
+/* Title letters */
+.title {
+    font-family: "Circular";
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 1px;
+    opacity: 0;
+    transition: transform 1s, opacity 1s;
+}
+
+.title span {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Hidden main */
+.main-content.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+}
+
+/* Visible main */
+.main-content.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
