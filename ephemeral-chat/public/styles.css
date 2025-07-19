@@ -1,68 +1,161 @@
 @font-face {
-    font-family: "circular";
-    src: url('./assets/fonts/circular-std-medium-500.ttf');
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-family: "Circular";
+    src: url("./assets/fonts/circular-std-medium-500.ttf");
 }
 
 body {
-    background-color: #111;
-    color: white;
-    font-family: "Circular", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #111;
+    overflow: hidden;
+}
+
+.splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    width: 100vw;
     height: 100vh;
+    background: #111;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    overflow: hidden;
+    animation: splashFadeOut 1s ease forwards;
+    animation-delay: 5.8s;
 }
 
-/* Intro container */
-.intro {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Line styles */
 .line {
-    width: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     height: 2px;
-    background-color: white;
-    transition: width 1s ease-out;
+    background: white;
+    width: 0;
+    transform: translate(-50%, -50%);
+    animation: expandLine 0.7s ease forwards,
+        contractLine 0.7s ease forwards 4.2s;
 }
 
-/* Title letters */
-.title {
-    font-family: "Circular";
-    font-size: 40px;
-    margin-bottom: 20px;
+.splash-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     display: flex;
-    gap: 1px;
-    opacity: 0;
-    transition: transform 1s, opacity 1s;
+    gap: 2px;
+    transform: translate(-50%, calc(-50% - 80%));
+    /* text ABOVE line */
+    font-size: 3.2rem;
+    color: white;
+    font-family: "Circular", sans-serif;
+    z-index: 2;
 }
 
-.title span {
+.splash-text .char {
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    transform: translateY(40px);
+    display: inline-block;
 }
 
-/* Hidden main */
-.main-content.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 1s ease;
+/* Animate each letter in */
+.char-1 {
+    animation: fadeUpIn 0.4s ease-in-out forwards 0.8s, fadeUpOut 0.5s ease forwards 4s;
 }
 
-/* Visible main */
-.main-content.visible {
-    opacity: 1;
-    pointer-events: auto;
+.char-2 {
+    animation: fadeUpIn 0.4s ease-in-out forwards 1.0s, fadeUpOut 0.4s ease forwards 4s;
+}
+
+.char-3 {
+    animation: fadeUpIn 0.4s ease-in-out forwards 1.2s, fadeUpOut 0.4s ease forwards 4s;
+}
+
+.char-4 {
+    animation: fadeUpIn 0.4s ease-in-out forwards 1.4s, fadeUpOut 0.4s ease forwards 4s;
+}
+
+.char-5 {
+    animation: fadeUpIn 0.4s ease-in-out forwards 1.6s, fadeUpOut 0.4s ease forwards 4s;
+}
+
+.char-6 {
+    animation: fadeUpIn 0.4s ease-in-out forwards 1.8s, fadeUpOut 0.4s ease forwards 4s;
+}
+
+.char-7 {
+    animation: fadeUpIn 0.4s ease-in-out forwards 2.0s, fadeUpOut 0.5s ease forwards 4s;
+}
+
+.char-8 {
+    animation: fadeUpIn 0.4s ease-in-out forwards 2.2s, fadeUpOut 0.5s ease forwards 4s;
+}
+
+.char-9 {
+    animation: fadeUpIn 0.4s ease-in-out forwards 2.4s, fadeUpOut 0.5s ease forwards 4s;
+}
+
+/* Line animation */
+@keyframes expandLine {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 40%;
+    }
+}
+
+@keyframes contractLine {
+    from {
+        width: 40%;
+    }
+
+    to {
+        width: 0;
+    }
+}
+
+/* Text entrance */
+@keyframes fadeUpIn {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Text exit */
+@keyframes fadeUpOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+}
+
+/* Entire splash fade out */
+@keyframes splashFadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.register-page {
+    width: 100%;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
