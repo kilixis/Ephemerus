@@ -5,6 +5,7 @@ const bannedWords = [
 
 const input = document.getElementById("username");
 const button = document.getElementById("enter-btn");
+const form = document.querySelector("form");
 
 const isCleanText = (text) => {
   const pattern = /^[a-zA-Z0-9_]+$/;
@@ -22,11 +23,19 @@ const validate = () => {
   const noBadChars = isCleanText(username);
   const noBadWords = !containsBadWords(username);
 
-  if (validLength && noBadChars && noBadWords) {
-    button.disabled = false;
-  } else {
-    button.disabled = true;
-  }
+  const isValid = validLength && noBadChars && noBadWords;
+  button.disabled = !isValid;
+  return isValid;
 };
 
 input.addEventListener("input", validate);
+
+// Handle form submission (via Enter or button)
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  if (validate()) {
+    const username = input.value.trim();
+    localStorage.setItem("username", username);
+    window.location.href = "chat.html";
+  }
+});
