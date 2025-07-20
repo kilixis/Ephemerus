@@ -18,7 +18,9 @@ const containsBadWords = (text) => {
 };
 
 const validate = () => {
-  const username = input.value.trim();
+  let username = input.value.replace(/\s+/g, "");
+  input.value = username;
+
   const validLength = username.length >= 3;
   const noBadChars = isCleanText(username);
   const noBadWords = !containsBadWords(username);
@@ -30,11 +32,10 @@ const validate = () => {
 
 input.addEventListener("input", validate);
 
-// Handle form submission (via Enter or button)
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   if (validate()) {
-    const username = input.value.trim();
+    const username = input.value;
     localStorage.setItem("username", username);
     window.location.href = "chat.html";
   }
