@@ -1,6 +1,6 @@
 const bannedWords = [
   "fuck", "shit", "bitch", "nigger", "cunt", "asshole", "slut",
-  "retard", "fag", "dick", "whore", "rape", "nigga"
+  "retard", "fag", "dick", "whore", "rape", "nigga", "admin", "mod", "creator", "owner", "superadmin", "eyp", "ephemerus"
 ];
 
 const input = document.getElementById("username");

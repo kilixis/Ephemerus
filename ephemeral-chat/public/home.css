@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "Circular";
+    src: url("./assets/fonts/circular-std-medium-500.ttf");
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("./assets/fonts/HelveticaNowDisplay-Thin.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Circular";
+    background-color: #D9D9D9;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar.left {
+    background-color: #2C006A;
+    color: white;
+    width: 320px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-top-right-radius: 10px;
+}
+
+.sidebar.left h2 {
+    margin-bottom: 20px;
+}
+
+.dm-list {
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.dm {
+    background-color: #d9d9d9;
+    height: 73px;
+    width: 280px;
+    border-radius: 10px;
+}
+
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+.main h2 {
+    font-weight: 500;
+    gap: 2px;
+    color: #27006a;
+    margin-bottom: 40px;
+    font-size: 35px;
+}
+
+.chatroom {
+    background-color: #111;
+    height: 121px;
+    width: 900px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.sidebar.right {
+    background-color: #27006a;
+    color: white;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    font-size: 32px;
+}
+
+.quit-btn {
+    width: 80px;
+    height: 30px;
+    font-family: "Circular";
+    font-size: 17px;
+    background-color: #860000;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+
+.actions button {
+    height: 50px;
+    font-family: "Circular";
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+}
+
+button:hover {
+    background-color: #9c9c9c;
+}
+
+.quit-btn:hover {
+    background-color: #430000;
+}
+
+.sidebar.left h2 {
+    font-weight: 400;
+}

@@ -5,10 +5,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ephemerus</title>
-    <link rel="stylesheet" href="chatpage.css" />
+    <link rel="stylesheet" href="home.css" />
 </head>
 
 <body>
+<body>
+  <div class="container">
+    <aside class="sidebar left">
+      <h2>Direct messages</h2>
+      <div class="dm-list">
+        <div class="dm"></div>
+        <div class="dm"></div>
+        <div class="dm"></div>
+        <div class="dm"></div>
+        <div class="dm"></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <h2><span class="icon">💬</span> Chatrooms Near You</h2>
+      <div class="chatroom"></div>
+      <div class="chatroom"></div>
+      <div class="chatroom"></div>
+      <div class="chatroom"></div>
+    </main>
+
+    <aside class="sidebar right">
+      <div class="profile">
+        <div class="avatar">👤</div>
+        <div class="username">kilix</div>
+        <button class="quit-btn">QUIT</button>
+      </div>
+      <div class="actions">
+        <button>🔍 Search</button>
+        <button>🔔 Notifications</button>
+        <button>Global Chatrooms</button>
+      </div>
+    </aside>
+  </div>
+
     <script src="chat.js"></script>
 </body>
 
