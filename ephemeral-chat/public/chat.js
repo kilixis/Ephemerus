@@ -60,4 +60,4 @@ closeBtn.addEventListener("click", () => {
   searchOverlay.style.pointerEvents = "none";
 });
 
-// I just realised my
+// I just realised my commits
