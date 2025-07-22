@@ -60,4 +60,4 @@ closeBtn.addEventListener("click", () => {
   searchOverlay.style.pointerEvents = "none";
 });
 
-// I just
+// I just realised
