@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // doesnt work
-  if (performance.navigation.type === 1) {
+  if (performance.navigation && performance.navigation.type === 1) {
     await supabaseClient.from("active_users").delete().eq("username", storedUsername);
     localStorage.removeItem("username");
     window.location.href = "index.html";
@@ -56,11 +56,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }, 300);
   });
 
-  // just here, doesnt work
-  window.history.pushState(null, "", window.location.href);
-  window.addEventListener("popstate", () => {
-    window.history.pushState(null, "", window.location.href);
-  });
 
   // doesnt work(yet)
   window.addEventListener("beforeunload", async () => {
