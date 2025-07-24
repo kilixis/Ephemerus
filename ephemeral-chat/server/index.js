@@ -1,12 +1,16 @@
-require('dotenv').config(); // make sure it's at the top
+require('dotenv').config(); // ✅ Load environment variables
 
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// ✅ Serve frontend files from "public" directory
+app.use(express.static(path.join(__dirname, '../public')));
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
@@ -18,12 +22,12 @@ if (!supabaseUrl || !supabaseKey) {
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Test route
+// ✅ Serve index.html as default
 app.get('/', (req, res) => {
-  res.send('✅ Node server is running');
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-// POST username to active_users
+// ✅ API: POST username to active_users
 app.post('/api/active-users', async (req, res) => {
   const { username } = req.body;
 
@@ -36,7 +40,7 @@ app.post('/api/active-users', async (req, res) => {
   res.status(200).json({ message: 'User added', data });
 });
 
-// DELETE username from active_users
+// ✅ API: DELETE username from active_users
 app.delete('/api/active-users', async (req, res) => {
   const { username } = req.body;
 
@@ -49,6 +53,11 @@ app.delete('/api/active-users', async (req, res) => {
 
   res.status(200).json({ message: 'User removed' });
 });
+
+// ✅ Optional: fallback route for other URLs (if using SPA)
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../public/index.html'));
+// });
 
 const PORT = 3000;
 app.listen(PORT, () => {
