@@ -7,55 +7,44 @@
   <title>Ephemerus</title>
   <link rel="stylesheet" href="home.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="chat.js"></script>
+  <script src="chat.js" defer></script>
 </head>
 
 <body>
+  <div class="container">
+    <aside class="sidebar left">
+      <h2>Direct messages</h2>
+      <div class="dm-list">
+        <div class="dm"></div>
+        <div class="dm"></div>
+        <div class="dm"></div>
+        <div class="dm"></div>
+        <div class="dm"></div>
+      </div>
+    </aside>
 
-  <body>
-    <div class="container">
-      <aside class="sidebar left">
-        <h2>Direct messages</h2>
-        <div class="dm-list">
-          <div class="dm"></div>
-          <div class="dm"></div>
-          <div class="dm"></div>
-          <div class="dm"></div>
-          <div class="dm"></div>
-        </div>
-      </aside>
+    <main class="main">
+      <h2><span class="icon">💬</span> Chatrooms Near You</h2>
+      <div class="chatroom"></div>
+      <div class="chatroom"></div>
+      <div class="chatroom"></div>
+      <div class="chatroom"></div>
+    </main>
 
-      <main class="main">
-        <h2><span class="icon">💬</span> Chatrooms Near You</h2>
-        <div class="chatroom"></div>
-        <div class="chatroom"></div>
-        <div class="chatroom"></div>
-        <div class="chatroom"></div>
-      </main>
-
-      <aside class="sidebar right">
-        <div class="profile">
-          <div class="avatar">👤</div>
-          <div class="username">kilix</div>
-          <button class="quit-btn">QUIT</button>
-        </div>
-        <div class="actions">
-          <button>🔍 Search</button>
-          <button>🔔 Notifications</button>
-          <button>Global Chatrooms</button>
-        </div>
-        <div class="search-overlay" id="searchOverlay">
-          <div class="search-header">
-            <input type="text" id="searchInput" placeholder="Search username..." />
-            <button id="closeSearch">&times;</button>
-          </div>
-          <div class="search-results" id="searchResults">
-            <!-- Matching usernames will appear here -->
-          </div>
-        </div>
-
-      </aside>
-    </div>
-  </body>
+    <aside class="sidebar right">
+      <div class="profile">
+        <div class="avatar">👤</div>
+        <div class="username">kilix</div>
+        <button class="quit-btn">QUIT</button>
+      </div>
+      <div class="actions">
+        <input class="request-input" type="text" placeholder="Enter exact username" />
+        <button class="request-btn">Send Request</button>
+        <button>🔔 Notifications</button>
+        <button>Global Chatrooms</button>
+      </div>
+    </aside>
+  </div>
+</body>
 
 </html>
