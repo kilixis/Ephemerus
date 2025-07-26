@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  fetch("http://localhost:3000/add-user", {
+  fetch("http://localhost:3000/api/active-users", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username: storedUsername }),
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("beforeunload", () => {
     navigator.sendBeacon(
-      "http://localhost:3000/remove-user",
+      "http://localhost:3000/api/active-users/remove",
       new Blob([JSON.stringify({ username: storedUsername })], {
         type: "application/json",
       })
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const quitButton = document.querySelector(".quit-btn");
   if (quitButton) {
     quitButton.addEventListener("click", () => {
-      fetch("http://localhost:3000/remove-user", {
+      fetch("http://localhost:3000/api/active-users/remove", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: storedUsername }),
@@ -55,4 +55,36 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  const container = document.querySelector(".request-container");
+  const requestBtn = document.querySelector(".request-btn");
+
+  requestBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    container.classList.add("active");
+    requestInput.focus();
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!container.contains(e.target)) {
+      container.classList.remove("active");
+      requestInput.value = "";
+    }
+  });
+
+  requestInput.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  requestInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const typedUsername = requestInput.value.trim();
+      if (typedUsername.length > 0) {
+        console.log("Send chat request to:", typedUsername);
+        // You can send request to backend here
+        container.classList.remove("active");
+        requestInput.value = "";
+      }
+    }
+  });
 });
