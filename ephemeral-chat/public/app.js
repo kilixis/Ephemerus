@@ -40,5 +40,3 @@ form.addEventListener("submit", function (event) {
     window.location.href = "chat.html";
   }
 });
-
-// baby im singing out tonight
